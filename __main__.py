@@ -60,8 +60,7 @@ def get_chrome_driver() -> webdriver.Chrome:
 def dump_cookies(driver: webdriver.Chrome) -> None:
     log.info(f'Saving cookies to {cfg.COOKIES_DUMP_PATH}')
     delete_cookies_dump()
-    if cfg.SAFE_MODE is False:
-        pickle.dump(driver.get_cookies(), open(cfg.COOKIES_DUMP_PATH, 'wb'))
+    pickle.dump(driver.get_cookies(), open(cfg.COOKIES_DUMP_PATH, 'wb'))
 
 
 def check_cookies(driver: webdriver.Chrome) -> None:
